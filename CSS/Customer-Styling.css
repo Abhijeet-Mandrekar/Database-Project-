@@ -83,40 +83,6 @@ body{
 
 }
 
-.d-flex>button{
-    background-color: rgb(7, 52, 186);
-    color: white;
-    position: fixed;
-    left: 1058px;
-    bottom: 648px;
-}
-
-.collapse-navbar-collapse a {
-    display: flex;
-    background-color: rgb(7, 52, 186);
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-    color: white;
-    padding: 10px 16px;
-    position: fixed;
-    left: 1320px;
-    bottom: 650px;
-}
-
-.collapse-navbar-collapse a:link, a:visited{
-    color: white;
-    padding: 10px 16px ;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-} 
-
-.collapse-navbar-collapse a:hover {
-    background-color: rgb(4, 131, 10);
-    color: white;
-}
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -132,33 +98,96 @@ ul {
    
 }
 
-li a {
-    display: block;
-    padding: 8px 16px;
-}
-
-li a:link, a:visited{
+li a:link {
     color: black;
     padding: 20px 50px ;
     text-align: center;
     text-decoration: none;
     display: block;
-}
-
-li a:hover {
+ }
+ li a:visited {
+    color: Black;
+    padding: 20px 50px ;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+ }
+ li a:hover {
     background-color: black;
     color: white;
+ }
+
+table{
+   position: absolute;
+   top: 130px;
+   left: 315px;
+   right: 200px;
+   width: 74%;
+   text-align: center;
 }
 
+table,th{
+    color: white;
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 8px;
+}
 
+tr,td{
+    color: black;
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 8px;
+}
 
+th{
+    background-color: black;
+}
 
-.sales{
+.New-Customer span{
+    background-color: rgb(7, 52, 186);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    padding: 10px 20px ;
     position: fixed;
-    top: 200px;
-    left: 400px;
+    top: 650px;
+    left: 1335px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+.New-Customer span:link, span:visited{
+    color: white;
+    padding: 10px 16px ;
+    text-align: center;
+    text-decoration: none;
+} 
+
+.New-Customer span:hover {
+    background-color: rgb(4, 131, 10);
+    color: white;
+}
+
+#Box{
+    display: none;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index:10;
+}
+.New-Box{
+    margin-left: auto;
+    margin-right: auto;
     background-color: black;
     color: white;
-    padding: 80px 80px;
-    border-radius: 10px;
+    width: 40%;
+    height: 70%;
+    top: 40vh;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    z-index:11;
 }

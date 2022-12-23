@@ -1,10 +1,17 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['loggedin'])){
+    header("location: ./login_page.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Project/CSS/home-page-styling.css" />
+    <link rel="stylesheet" href="./CSS/home-page-styling.css" />
     
     <!-- CSS only -->
     <link
@@ -64,23 +71,25 @@
         <hr>
         <?php
           include './Partials/_dbconnect.php';
-          // query to add the sum of all the sales of today 
+          // query to add the sum of all the sales of today
+          $q="SELECT sum(amount) as sales from sale where status='sale'";
+          $res = mysqli_query($conn, $q);
+          $row = mysqli_fetch_assoc($res);
+          echo $row['sales'];
         ?>
     </div>
 
     <div>
-      <ul>
+      <ul> 
           <li><a href="./Home-page.php" >Home</a></li>
           <li><a href="./Customer-page.php">Customers</a></li>
           <li><a href="./Supplier-Page.php">Suppliers</a></li>
-          <li><a href="../Project/Items.html">Items</a></li>
-          <li><a href="../Project/Report.html">Report</a></li>
-          <li><a href="../Project/Aboutus.html">About Us</a></li>
+          <li><a href="./Items.php">Items</a></li>
+          <li><a href="./sales.php">Sale</a></li>
+          <li><a href="./Aboutus.html">About Us</a></li>
       </ul>
     </div>
   
 
   </body>
 </html>
-
-

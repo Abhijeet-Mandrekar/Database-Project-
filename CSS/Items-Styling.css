@@ -149,9 +149,145 @@ li a:hover {
     background-color: black;
     color: white;
 }
+table{
+    position: absolute;
+    top: 130px;
+    left: 315px;
+    right: 200px;
+    /* bottom:200px; */
+    width: 74%;
+    text-align: center;
+ }
+ 
+ table,th{
+     color: white;
+     border: 2px solid black;
+     border-collapse: collapse;
+     padding: 8px;
+ }
+ 
+ tr,td{
+     color: black;
+     border: 2px solid black;
+     border-collapse: collapse;
+     padding: 8px;
+ }
+ 
+ th{
+     background-color: black;
+ }
 
+ .New-Item span{
+    background-color: rgb(7, 52, 186);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    padding: 10px 20px ;
+    position: fixed;
+    top: 650px;
+    left: 1335px;
+    bottom: 20px;
+    cursor: pointer;
+}
 
+.New-Item span:link, span:visited{
+    color: white;
+    padding: 10px 16px ;
+    text-align: center;
+    text-decoration: none;
+} 
 
+.New-Item span:hover {
+    background-color: rgb(4, 131, 10);
+    color: white;
+}
+
+#Box{
+    display: none;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index:10;
+}
+.New-Box{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    color: white;
+    width: 40%;
+    height: 70%;
+    top: 18vh;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    z-index:11;
+}
+.del span{
+    background-color: rgb(7, 52, 186);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+}
+.del span:link, span:visited{
+    color: white;
+} 
+
+.del span:hover {
+    background-color: rgb(4, 131, 10);
+    color: white;
+}
+
+#Cart{
+    display: none;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index:10;
+}
+
+.New-cart{
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: black;
+    color: white; */
+    width: 40%;
+    height: 70%;
+    top: 40vh;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    z-index:11;
+}
+
+.gotocart span{
+    background-color: rgb(7, 52, 186);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    padding: 20px 20px ;
+    position: fixed;
+    top: 600px;
+    left: 275px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
+.gotocart span:link, span:visited{
+    color: white;
+    padding: 10px 16px ;
+    text-align: center;
+    text-decoration: none;
+} 
+
+.gotocart span:hover {
+    background-color: rgb(4, 131, 10);
+    color: white;
+}
 
 .sales{
     position: fixed;

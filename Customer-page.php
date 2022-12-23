@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['loggedin'])){
+    header("location: ./login_page.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,6 +65,16 @@
     </div>
   </div>
 
+  <?php
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+          include './Partials/_dbconnect.php';
+          $name=$_GET['customer'];
+          $q = "SELECT * from customer where name like '%$name%'";
+          $result = mysqli_query($conn, $q);
+
+        }
+      ?>
+
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
@@ -66,10 +82,10 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
+        
         <div class="Search" id="navbarCollapse">
-          <form class="d-flex">
-            <input class="Search-Bar" type="text" placeholder="Search" aria-label="Search">
+          <form class="d-flex" method="get" acion="./Customer-page.php">
+            <input class="Search-Bar" type="text" name="customer" placeholder="customer-Search" aria-label="Search">
             <input class="btn btn-outline-success" id="Button" type="submit" value="Search" style="background-color: rgb(7, 52, 186);
               color: white; margin: 4px;">Search</input>
           </form>
@@ -98,8 +114,10 @@
       <tbody>
           <?php
             include './Partials/_dbconnect.php';
+            if(!isset($_GET['customer'])){
             $Query = "SELECT * FROM `customer`";
             $result = mysqli_query($conn, $Query);
+            }
 
             $num = mysqli_num_rows($result);   //to fetch the number of rows in table
 
@@ -126,9 +144,8 @@
         <li><a href="./Home-page.php">Home</a></li>
         <li><a href="./Customer-page.php">Customers</a></li>
         <li><a href="./Supplier-Page.php">Suppliers</a></li>
-        <li><a href="../Project/Items.html">Items</a></li>
-        <li><a href="../Project/Report.html">Report</a></li>
-        <li><a href="../Project/Aboutus.html">About Us</a></li>
+        <li><a href="./Items.php">Items</a></li>
+        <li><a href="./Sales.php">Sales</a></li>
       </ul>
     </div>
 
