@@ -44,17 +44,7 @@
     function checkdel() {
       return confirm('Delete this record?');
     }
-    // function fetchid(a){
-    //   <?php
-    //     $query="SELECT * from `cart` where `p_id`=a";
-    //     $result=mysqli_query($conn, $query);
-    //     if($row=mysqli_fetch_assoc($result)){
-    //       echo $row['quantity'];
-    //     }
-    //     else{
-    //       echo 0;
-    //     }?>
-    // }
+  
     if ( window.history.replaceState ) {
       window.history.replaceState( null, null, window.location.href );
     }
@@ -120,6 +110,32 @@
         echo"whoopsy";
     ?>
 
+    <?php
+    if(isset($_GET['choice'])){
+      include './Partials/_dbconnect.php';
+      if($_SERVER["REQUEST_METHOD"] == "GET"){
+        if($_GET['choice'] == 'dec'){
+          $q = "SELECT * from item order by price desc";
+          $result = mysqli_query($conn, $q);
+        }
+        elseif($_GET['choice'] == 'inc'){
+          $q = "SELECT * from item order by price asc";
+          $result = mysqli_query($conn, $q);
+        } 
+      } 
+    }
+   ?>
+
+   <?php
+   if(isset($_GET['BRAND'])){
+    include './Partials/_dbconnect.php';
+      $b =  $_GET['BRAND'];
+      $q = "SELECT * from item where Brand like '%$b%'";
+      $result = mysqli_query($conn, $q);
+    } 
+
+   ?>
+        
   <div id="Box">
     <div class="New-Box">
       <h2 style="text-align:center;"><span onclick="displayNone()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
@@ -181,6 +197,23 @@
     </ul>
   </div>
 
+  <div id="sort" >
+    <form method="get" action="./Items.php">
+       Sort by:<select name="choice"><option disabled selected value> -- select an option -- </option>
+            <option value="inc">Increasing</option>
+            <option value="dec">Decreasing</option>
+            </select>
+            <input type="submit" value="SUBMIT" style=" background-color: rgb(7, 52, 186); color:white;">
+    </form>
+  </div>
+
+  <div id="Brand-Box" >
+    <form method="get" action="./Items.php">
+      Search for a  Brand:<input type="text" name="BRAND" >
+            <input type="submit" value="SUBMIT" style=" background-color: rgb(7, 52, 186); color:white;">
+    </form>
+  </div>
+
   <div style="overflow-x:auto;">
       <table>
         <tr>
@@ -196,8 +229,9 @@
       <tbody>
           <?php
             include './Partials/_dbconnect.php';
+            if(!isset($_GET['choice']) and !isset($_GET['BRAND'])){
             $Query = "SELECT * FROM `item`";
-            $result = mysqli_query($conn, $Query);
+            $result = mysqli_query($conn, $Query); }
 
             $num = mysqli_num_rows($result);   //to fetch the number of rows in table
 
